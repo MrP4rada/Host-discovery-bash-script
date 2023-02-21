@@ -8,7 +8,7 @@ exit 1
 
 trap Ctrl-c INT
 
-thirdip=$(ip addr | grep wlp2s0 | tail -n 1 | awk '{print$2}' | tr "/" " " | awk '{print$1}'| tr "." " "| awk '{print$3}')
+thirdip=$(hostname -I | awk '{print $1}' | tr "." " " | awk '{print $3}')
 
 for i in $(seq 1 255);do
 
